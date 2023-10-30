@@ -90,9 +90,33 @@ namespace NBCG
         return *this;
     }
 
+    CShaderProgram& CShaderProgram::MUniform3(const std::string& AVariable , std::vector<signed int> AArray)
+    {
+        glUniform3iv(glGetUniformLocation(PIdentifier , AVariable.c_str()) , AArray.size() , AArray.data());
+        return *this;
+    }
+
     CShaderProgram& CShaderProgram::MUniform(const std::string& AVariable , float AX , float AY , float AZ , float AW)
     {
         glUniform4f(glGetUniformLocation(PIdentifier , AVariable.c_str()) , AX , AY , AZ , AW);
+        return *this;
+    }
+
+    CShaderProgram& CShaderProgram::MUniform4(const std::string& AVariable , std::vector<float> AArray)
+    {
+        glUniform4fv(glGetUniformLocation(PIdentifier , AVariable.c_str()) , AArray.size() , AArray.data());
+        return *this;
+    }
+
+    CShaderProgram& CShaderProgram::MUniform(const std::string& AVariable , signed int AX , signed int AY , signed int AZ , signed int AW)
+    {
+        glUniform4i(glGetUniformLocation(PIdentifier , AVariable.c_str()) , AX , AY , AZ , AW);
+        return *this;
+    }
+
+    CShaderProgram& CShaderProgram::MUniform4(const std::string& AVariable , std::vector<signed int> AArray)
+    {
+        glUniform4iv(glGetUniformLocation(PIdentifier , AVariable.c_str()) , AArray.size() , AArray.data());
         return *this;
     }
 }

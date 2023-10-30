@@ -19,7 +19,11 @@ namespace NBCG
             CShaderProgram& MUniform(const std::string& AVariable , float AX , float AY , float AZ);
             CShaderProgram& MUniform3(const std::string& AVariable , std::vector<float> AArray);
             CShaderProgram& MUniform(const std::string& AVariable , signed int AX , signed int AY , signed int AZ);
+            CShaderProgram& MUniform3(const std::string& AVariable , std::vector<signed int> AArray);
             CShaderProgram& MUniform(const std::string& AVariable , float AX , float AY , float AZ , float AW);
+            CShaderProgram& MUniform4(const std::string& AVariable , std::vector<float> AArray);
+            CShaderProgram& MUniform(const std::string& AVariable , signed int AX , signed int AY , signed int AZ , signed int AW);
+            CShaderProgram& MUniform4(const std::string& AVariable , std::vector<signed int> AArray);
     }
     GShaderProgram;
 }

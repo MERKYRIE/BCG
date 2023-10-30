@@ -14,7 +14,7 @@ signed int main(signed int , char**)
 {
     //NBCG::CModel LModel{"\\Gordon.obj"};
     //glTranslated(0.0 , -1.0 , -3.0);
-    NBCG::GShaderProgram.MUniform("UColor" , 0.0 , 0.5 , 0.5 , 1.0);
+    NBCG::GShaderProgram.MUniform("UColor" , 0.0f , 0.5f , 0.5f , 1.0f);
     while(!NBCG::Input::Keyboard::Held[SDL_SCANCODE_ESCAPE])
     {
         NBCG::GVideo.MBegin();
