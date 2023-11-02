@@ -1,6 +1,7 @@
 #include "Video.hpp"
 
 #include "Debug.hpp"
+#include "Model.hpp"
 #include "Video\\ShaderProgram.hpp"
 #include "Video\\VertexBufferObject.hpp"
 #include "Video\\ElementBufferObject.hpp"
@@ -39,14 +40,15 @@ namespace NBCG
 
     void CVideo::PBegin()
     {
-        glColor4ub(255 , 255 , 255 , 255);
+        //glColor4ub(255 , 255 , 255 , 255);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        NVideo::GShaderProgram.PUpdate();
     }
 
     void CVideo::PEnd()
     {
-        NVideo::GShaderProgram.PUpdate();
-        glDrawElements(GL_TRIANGLES , 3 , GL_UNSIGNED_INT , nullptr);
+        static CModel LModel{"\\Gordon.obj"};
+        LModel.PRender(0.0 , 0.0 , 0.0);
         SDL_GL_SwapWindow(FWindow);
     }
 

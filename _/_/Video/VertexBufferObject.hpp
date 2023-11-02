@@ -15,6 +15,7 @@ namespace NBCG::NVideo
         public:
             CVertexBufferObject& PBind();
             CVertexBufferObject& PBuffer();
+            CVertexBufferObject& PBuffer(const std::vector<aiVector3D>& AVertices);
     }
     GVertexBufferObject;
 }

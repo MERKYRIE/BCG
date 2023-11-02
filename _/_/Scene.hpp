@@ -9,6 +9,8 @@ namespace NBCG
     class CScene
     {
         private:
+            friend class CModel;
+        private:
             aiVector3D FTransformation;
             std::vector<CMesh> FMeshes;
             std::vector<CScene> FChildren;

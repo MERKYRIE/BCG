@@ -15,6 +15,7 @@ namespace NBCG::NVideo
         public:
             CElementBufferObject& PBind();
             CElementBufferObject& PBuffer();
+            CElementBufferObject& PBuffer(const std::vector<unsigned int>& AIndices);
     }
     GElementBufferObject;
 }

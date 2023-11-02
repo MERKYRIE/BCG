@@ -7,6 +7,8 @@ namespace NBCG
     class CFace
     {
         private:
+            friend class CModel;
+        private:
             std::vector<unsigned int> FIndices;
         public:
             CFace(const aiFace& AFace);

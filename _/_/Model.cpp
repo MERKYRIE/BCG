@@ -1,6 +1,7 @@
 #include "Model.hpp"
 
 #include "Debug.hpp"
+#include "Video\\VertexArrayObject.hpp"
 
 namespace NBCG
 {
@@ -8,6 +9,7 @@ namespace NBCG
     {
         const aiScene* LScene;
         GDebug.PAI(LScene = aiImportFile(("Models" + APath).c_str() , 0));
+        /*
         for(unsigned int LMaterial{0} ; LMaterial < LScene->mNumMaterials ; LMaterial++)
         {
             if(!GDebug.PWarning(aiGetMaterialTextureCount(LScene->mMaterials[LMaterial] , aiTextureType_DIFFUSE) != 1 && aiGetMaterialTextureCount(LScene->mMaterials[LMaterial] , aiTextureType_BASE_COLOR) != 1))
@@ -25,7 +27,23 @@ namespace NBCG
             GDebug.PError(LScene->mMeshes[VMesh]->mPrimitiveTypes & aiPrimitiveType_NGONEncodingFlag);
             GDebug.PError(LScene->mMeshes[VMesh]->mMaterialIndex >= FMaterials.size());
         }
-        FScene = std::make_unique<CScene>(LScene , LScene->mRootNode);
+        FScene.emplace(LScene , LScene->mRootNode);
+        */
+        for(unsigned int LMesh{0} ; LMesh < LScene->mNumMeshes ; LMesh++)
+        {
+            for(unsigned int LVertex{0} ; LVertex < LScene->mMeshes[LMesh]->mNumVertices ; LVertex++)
+            {
+                FVertices.push_back(LScene->mMeshes[LMesh]->mVertices[LVertex]);
+            }
+            for(unsigned int LFace{0} ; LFace < LScene->mMeshes[LMesh]->mNumFaces ; LFace++)
+            {
+                for(unsigned int LIndex{0} ; LIndex < LScene->mMeshes[LMesh]->mFaces[LFace].mNumIndices ; LIndex++)
+                {
+                    FIndices.push_back(LScene->mMeshes[LMesh]->mFaces[LFace].mIndices[LIndex]);
+                }
+            }
+        }
+        //NVideo::GVertexArrayObject.PBuffer(FVertices , FIndices);
         aiReleaseImport(LScene);
     }
 
@@ -36,5 +54,7 @@ namespace NBCG
         PScene->MRender(PMaterials);
         glTranslated(-AX , -AY , -AZ);
         */
+        //glDrawElements(GL_TRIANGLES , static_cast<signed int>(FIndices.size()) , GL_UNSIGNED_INT , nullptr);
+        glDrawElements(GL_TRIANGLES , 3 , GL_UNSIGNED_INT , nullptr);
     }
 }

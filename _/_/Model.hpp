@@ -11,7 +11,9 @@ namespace NBCG
     {
         private:
             std::vector<CMaterial> FMaterials;
-            std::unique_ptr<CScene> FScene;
+            std::optional<CScene> FScene;
+            std::vector<aiVector3D> FVertices;
+            std::vector<unsigned int> FIndices;
         public:
             CModel(const std::string& APath);
             void PRender(double AX , double AY , double AZ) const;

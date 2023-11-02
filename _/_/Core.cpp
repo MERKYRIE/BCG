@@ -26,15 +26,11 @@ namespace NBCG
     
     void CCore::PUpdate()
     {
-        //CModel LModel{"\\Gordon.obj"};
-        //glTranslated(0.0 , -1.0 , -3.0);
         while(!NInput::GKeyboard.PHeld(SDL_SCANCODE_ESCAPE))
         {
             GVideo.PBegin();
             GInput.PUpdate();
             GTime.PUpdate();
-            //LModel.MRender(0.0 , 0.0 , 0.0);
-            //glRotated(0.05 , 0.0 , 1.0 , 0.0);
             GVideo.PEnd();
         }
     }

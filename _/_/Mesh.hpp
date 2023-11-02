@@ -10,6 +10,8 @@ namespace NBCG
     class CMesh
     {
         private:
+            friend class CModel;
+        private:
             unsigned int FMaterial;
             std::vector<aiVector3D> FVertices;
             std::vector<aiVector2D> FCoordinates;

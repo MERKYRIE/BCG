@@ -20,11 +20,17 @@ namespace NBCG::NVideo
     {
         static float LVertices[]
         {
-             0.5F , -0.5F , 0.0F ,    1.0F , 0.0F , 0.0F ,
-            -0.5F , -0.5F , 0.0F ,    0.0F , 1.0F , 0.0F ,
-             0.0F ,  0.5F , 0.0F ,    0.0F , 0.0F , 1.0F
+            -5.0F , -5.0F , -5.0F ,
+             5.0F ,  5.0F ,  5.0F ,
+            10.0F , 10.0F , -5.0F
         };
         glBufferData(GL_ARRAY_BUFFER , sizeof(LVertices) , LVertices , GL_STATIC_DRAW);
+        return *this;
+    }
+
+    CVertexBufferObject& CVertexBufferObject::PBuffer(const std::vector<aiVector3D>& AVertices)
+    {
+        glBufferData(GL_ARRAY_BUFFER , AVertices.size() * sizeof(aiVector3D) , AVertices.data() , GL_STATIC_DRAW);
         return *this;
     }
 }

@@ -12,6 +12,10 @@ namespace NBCG::NVideo
             unsigned int FIdentifier;
         private:
             void PInitialize();
+        public:
+            CVertexArrayObject& PBind();
+            CVertexArrayObject& PBuffer();
+            CVertexArrayObject& PBuffer(const std::vector<aiVector3D>& AVertices , const std::vector<unsigned int>& AIndices);
     }
     GVertexArrayObject;
 }
