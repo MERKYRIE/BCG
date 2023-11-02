@@ -28,7 +28,7 @@ namespace NBCG::NVideo
 
     CElementBufferObject& CElementBufferObject::PBuffer(const std::vector<unsigned int>& AIndices)
     {
-        glBufferData(GL_ARRAY_BUFFER , AIndices.size() * sizeof(unsigned int) , AIndices.data() , GL_STATIC_DRAW);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER , AIndices.size() * sizeof(unsigned int) , AIndices.data() , GL_STATIC_DRAW);
         return *this;
     }
 }

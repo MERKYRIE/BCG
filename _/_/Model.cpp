@@ -33,7 +33,7 @@ namespace NBCG
         {
             for(unsigned int LVertex{0} ; LVertex < LScene->mMeshes[LMesh]->mNumVertices ; LVertex++)
             {
-                FVertices.push_back(LScene->mMeshes[LMesh]->mVertices[LVertex]);
+                FVertices.emplace_back(LScene->mMeshes[LMesh]->mVertices[LVertex].z , LScene->mMeshes[LMesh]->mVertices[LVertex].x , -LScene->mMeshes[LMesh]->mVertices[LVertex].y);
             }
             for(unsigned int LFace{0} ; LFace < LScene->mMeshes[LMesh]->mNumFaces ; LFace++)
             {
@@ -43,7 +43,7 @@ namespace NBCG
                 }
             }
         }
-        //NVideo::GVertexArrayObject.PBuffer(FVertices , FIndices);
+        NVideo::GVertexArrayObject.PBuffer(FVertices , FIndices);
         aiReleaseImport(LScene);
     }
 
@@ -54,7 +54,7 @@ namespace NBCG
         PScene->MRender(PMaterials);
         glTranslated(-AX , -AY , -AZ);
         */
-        //glDrawElements(GL_TRIANGLES , static_cast<signed int>(FIndices.size()) , GL_UNSIGNED_INT , nullptr);
-        glDrawElements(GL_TRIANGLES , 3 , GL_UNSIGNED_INT , nullptr);
+        glDrawElements(GL_TRIANGLES , static_cast<signed int>(FIndices.size()) , GL_UNSIGNED_INT , nullptr);
+        //glDrawElements(GL_TRIANGLES , 3 , GL_UNSIGNED_INT , nullptr);
     }
 }
