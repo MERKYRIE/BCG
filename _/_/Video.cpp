@@ -45,6 +45,7 @@ namespace NBCG
 
     void CVideo::PEnd()
     {
+        glDrawElements(GL_TRIANGLES , 3 , GL_UNSIGNED_INT , nullptr);
         SDL_GL_SwapWindow(FWindow);
     }
 
@@ -53,17 +54,5 @@ namespace NBCG
         IMG_Quit();
         SDL_GL_DeleteContext(FContext);
         SDL_DestroyWindow(FWindow);
-    }
-
-    CVideo& CVideo::DrawArrays()
-    {
-        glDrawArrays(GL_TRIANGLES , 0 , 3);
-        return *this;
-    }
-
-    CVideo& CVideo::DrawElements()
-    {
-        glDrawElements(GL_TRIANGLES , 3 , GL_UNSIGNED_INT , nullptr);
-        return *this;
     }
 }

@@ -1,10 +1,10 @@
 #version 460 core
 
-uniform vec4 UColor;
+layout(location = 0) in vec3 IColor;
 
 out vec4 OColor;
 
 void main()
 {
-    OColor = UColor;
+    OColor = vec4(IColor , 1.0);
 }

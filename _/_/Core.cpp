@@ -20,15 +20,14 @@ namespace NBCG
     CCore::CCore()
     {
         GDebug.PCode(SDL_Init(SDL_INIT_EVERYTHING));
-        GVideo.PInitialize();
         GInput.PInitialize();
+        GVideo.PInitialize();
     }
     
     void CCore::PUpdate()
     {
         //CModel LModel{"\\Gordon.obj"};
         //glTranslated(0.0 , -1.0 , -3.0);
-        NVideo::GShaderProgram.PUniform("UColor" , 0.0F , 0.5F , 0.5F , 1.0F);
         while(!NInput::GKeyboard.PHeld(SDL_SCANCODE_ESCAPE))
         {
             GVideo.PBegin();
@@ -36,7 +35,6 @@ namespace NBCG
             GTime.PUpdate();
             //LModel.MRender(0.0 , 0.0 , 0.0);
             //glRotated(0.05 , 0.0 , 1.0 , 0.0);
-            GVideo.DrawElements();
             GVideo.PEnd();
         }
     }
