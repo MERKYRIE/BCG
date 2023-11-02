@@ -16,6 +16,9 @@ namespace NBCG
             void PBegin();
             void PEnd();
             void PDeinitialize();
+        public:
+            CVideo& DrawArrays();
+            CVideo& DrawElements();
     }
     GVideo;
 }

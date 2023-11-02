@@ -25,19 +25,11 @@ namespace NBCG
         }
         GDebug.PFlags(IMG_Init(IMG_INIT_PNG));
         glewInit();
+        glEnable(GL_MULTISAMPLE);
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
-        /*
-        glEnable(GL_MULTISAMPLE);
-        glEnable(GL_TEXTURE_2D);
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA , GL_ONE_MINUS_SRC_ALPHA);
-        glMatrixMode(GL_PROJECTION);
-        glLoadIdentity();
-        gluPerspective(90.0 , 16.0 / 9.0 , 0.1 , 1000.0);
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-        */
         GDebug.POGL();
         NVideo::GShaderProgram.PInitialize();
         NVideo::GVertexBufferObject.PInitialize();
@@ -61,5 +53,17 @@ namespace NBCG
         IMG_Quit();
         SDL_GL_DeleteContext(FContext);
         SDL_DestroyWindow(FWindow);
+    }
+
+    CVideo& CVideo::DrawArrays()
+    {
+        glDrawArrays(GL_TRIANGLES , 0 , 3);
+        return *this;
+    }
+
+    CVideo& CVideo::DrawElements()
+    {
+        glDrawElements(GL_TRIANGLES , 3 , GL_UNSIGNED_INT , nullptr);
+        return *this;
     }
 }

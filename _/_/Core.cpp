@@ -36,7 +36,7 @@ namespace NBCG
             GTime.PUpdate();
             //LModel.MRender(0.0 , 0.0 , 0.0);
             //glRotated(0.05 , 0.0 , 1.0 , 0.0);
-            glDrawElements(GL_TRIANGLES , 3 , GL_UNSIGNED_INT , nullptr);
+            GVideo.DrawElements();
             GVideo.PEnd();
         }
     }
