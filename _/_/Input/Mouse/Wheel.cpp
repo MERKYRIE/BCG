@@ -1,28 +1,28 @@
 #include "Wheel.hpp"
 
-namespace NBCG::Input::Mouse::Wheel
+namespace NBCG::NInput::NMouse
 {
-    void Update(const SDL_Event& Event)
+    void CWheel::PUpdate(const SDL_Event& AEvent)
     {
-        switch(Event.wheel.y)
+        switch(AEvent.wheel.y)
         {
             case -1:
-                State = Event.wheel.y;
-                Changed = true;
-                Down = true;
-                Up = false;
+                FState = AEvent.wheel.y;
+                FChanged = true;
+                FDown = true;
+                FUp = false;
             break;
             case 0:
-                State = Event.wheel.y;
-                Changed = false;
-                Down = false;
-                Up = false;
+                FState = AEvent.wheel.y;
+                FChanged = false;
+                FDown = false;
+                FUp = false;
             break;
             case +1:
-                State = Event.wheel.y;
-                Changed = true;
-                Down = false;
-                Up = true;
+                FState = AEvent.wheel.y;
+                FChanged = true;
+                FDown = false;
+                FUp = true;
             break;
         }
     }

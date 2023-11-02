@@ -1,20 +1,20 @@
 #include "Button.hpp"
 
-namespace NBCG::Input::Mouse::Button
+namespace NBCG::NInput::NMouse
 {
-    void Update(const SDL_Event& Event)
+    void CButton::PUpdate(const SDL_Event& AEvent)
     {
-        switch(Event.type)
+        switch(AEvent.type)
         {
             case SDL_MOUSEBUTTONDOWN:
-                Held[Event.button.button - 1] = true;
-                Pressed[Event.button.button - 1] = true;
-                Released[Event.button.button - 1] = false;
+                FHeld[AEvent.button.button - 1] = true;
+                FPressed[AEvent.button.button - 1] = true;
+                FReleased[AEvent.button.button - 1] = false;
             break;
             case SDL_MOUSEBUTTONUP:
-                Held[Event.button.button - 1] = false;
-                Pressed[Event.button.button - 1] = false;
-                Released[Event.button.button - 1] = true;
+                FHeld[AEvent.button.button - 1] = false;
+                FPressed[AEvent.button.button - 1] = false;
+                FReleased[AEvent.button.button - 1] = true;
             break;
         }
     }

@@ -33,6 +33,18 @@
     <ClInclude Include="_\_\Input\Mouse\Cursor\Y.hpp">
       <Filter>Input\Mouse\Cursor</Filter>
     </ClInclude>
+    <ClInclude Include="_\_\Video\ShaderProgram.hpp">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="_\_\Video\VertexBufferObject.hpp">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="_\_\Video\VertexArrayObject.hpp">
+      <Filter>Video</Filter>
+    </ClInclude>
+    <ClInclude Include="_\_\Video\ElementBufferObject.hpp">
+      <Filter>Video</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_\_\Video.cpp" />
@@ -67,6 +79,18 @@
     <ClCompile Include="_\_\Input\Mouse\Cursor\Y.cpp">
       <Filter>Input\Mouse\Cursor</Filter>
     </ClCompile>
+    <ClCompile Include="_\_\Video\ShaderProgram.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="_\_\Video\VertexBufferObject.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="_\_\Video\VertexArrayObject.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
+    <ClCompile Include="_\_\Video\ElementBufferObject.cpp">
+      <Filter>Video</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Input">
@@ -77,6 +101,9 @@
     </Filter>
     <Filter Include="Input\Mouse\Cursor">
       <UniqueIdentifier>{28bca7b0-4843-45b7-abd2-f5e6774a2cd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Video">
+      <UniqueIdentifier>{a81215fc-8deb-41fe-a943-3dfa372d1c95}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

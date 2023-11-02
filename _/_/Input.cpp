@@ -1,16 +1,16 @@
-#include "Core.hpp"
+#include "Input.hpp"
 
 #include "Input\\Keyboard.hpp"
 #include "Input\\Mouse.hpp"
 
 namespace NBCG
 {
-    CInput::CInput()
+    void CInput::PInitialize()
     {
-        Input::Mouse::Initialize();
+        NInput::GMouse.PInitialize();
     }
 
-    void CInput::MUpdate()
+    void CInput::PUpdate()
     {
         SDL_Event LEvent;
         while(SDL_PollEvent(&LEvent))
@@ -18,22 +18,22 @@ namespace NBCG
             switch(LEvent.type)
             {
                 case SDL_KEYDOWN:
-                    Input::Keyboard::Update(LEvent);
+                    NInput::GKeyboard.PUpdate(LEvent);
                 break;
                 case SDL_KEYUP:
-                    Input::Keyboard::Update(LEvent);
+                    NInput::GKeyboard.PUpdate(LEvent);
                 break;
                 case SDL_MOUSEMOTION:
-                    Input::Mouse::Update(LEvent);
+                    NInput::GMouse.PUpdate(LEvent);
                 break;
                 case SDL_MOUSEBUTTONDOWN:
-                    Input::Mouse::Update(LEvent);
+                    NInput::GMouse.PUpdate(LEvent);
                 break;
                 case SDL_MOUSEBUTTONUP:
-                    Input::Mouse::Update(LEvent);
+                    NInput::GMouse.PUpdate(LEvent);
                 break;
                 case SDL_MOUSEWHEEL:
-                    Input::Mouse::Update(LEvent);
+                    NInput::GMouse.PUpdate(LEvent);
                 break;
             }
         }

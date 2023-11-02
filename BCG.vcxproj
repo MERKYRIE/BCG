@@ -39,7 +39,7 @@
     <ClInclude Include="_\_\Debug.hpp" />
     <ClInclude Include="_\_\Video\ElementBufferObject.hpp" />
     <ClInclude Include="_\_\Video\ShaderProgram.hpp" />
-    <ClInclude Include="_\_\Video\VertexArrayBuffer.hpp" />
+    <ClInclude Include="_\_\Video\VertexArrayObject.hpp" />
     <ClInclude Include="_\_\Video\VertexBufferObject.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -63,7 +63,7 @@
     <ClCompile Include="_\_\Debug.cpp" />
     <ClCompile Include="_\_\Video\ElementBufferObject.cpp" />
     <ClCompile Include="_\_\Video\ShaderProgram.cpp" />
-    <ClCompile Include="_\_\Video\VertexArrayBuffer.cpp" />
+    <ClCompile Include="_\_\Video\VertexArrayObject.cpp" />
     <ClCompile Include="_\_\Video\VertexBufferObject.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -1,15 +1,19 @@
 #pragma once
 
+#include "Core.hpp"
+
 namespace NBCG
 {
     inline class CTime
     {
         private:
-            unsigned long long int PLast;
-            unsigned long long int PAbsolute;
-            unsigned long long int PRelative;
-        public:
-            void MUpdate();
+            friend class CCore;
+        private:
+            unsigned long long int FLast;
+            unsigned long long int FAbsolute;
+            unsigned long long int FRelative;
+        private:
+            void PUpdate();
     }
     GTime;
 }

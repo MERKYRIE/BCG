@@ -2,13 +2,20 @@
 
 #include "Core.hpp"
 
-namespace NBCG::Input::Mouse
+namespace NBCG::NInput
 {
-    inline signed int PressedX[6];
-    inline signed int PressedY[6];
-    inline signed int ReleasedX[6];
-    inline signed int ReleasedY[6];
-
-    void Initialize();
-    void Update(const SDL_Event& Event);
+    inline class CMouse
+    {
+        private:
+            friend class CInput;
+        private:    
+            signed int FPressedX[6];
+            signed int FPressedY[6];
+            signed int FReleasedX[6];
+            signed int FReleasedY[6];
+        private:    
+            void PInitialize();
+            void PUpdate(const SDL_Event& AEvent);
+    }
+    GMouse;
 }

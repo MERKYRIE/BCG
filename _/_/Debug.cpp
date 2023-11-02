@@ -1,8 +1,8 @@
-#include "Core.hpp"
+#include "Debug.hpp"
 
 namespace NBCG
 {
-    void CDebug::MError(bool ACondition , const std::source_location& ALocation)
+    void CDebug::PError(bool ACondition , const std::source_location& ALocation)
     {
         if(ACondition)
         {
@@ -33,7 +33,7 @@ namespace NBCG
         }
     }
 
-    bool CDebug::MWarning(bool ACondition , const std::source_location& ALocation)
+    bool CDebug::PWarning(bool ACondition , const std::source_location& ALocation)
     {
         if(ACondition)
         {
@@ -64,7 +64,7 @@ namespace NBCG
         return ACondition;
     }
     
-    void CDebug::MCode(signed int AValue , const std::source_location& ALocation)
+    void CDebug::PCode(signed int AValue , const std::source_location& ALocation)
     {
         if(AValue < 0)
         {
@@ -97,7 +97,7 @@ namespace NBCG
         }
     }
     
-    void CDebug::MHandle(const void* APointer , const std::source_location& ALocation)
+    void CDebug::PHandle(const void* APointer , const std::source_location& ALocation)
     {
         if(!APointer)
         {
@@ -130,7 +130,7 @@ namespace NBCG
         }
     }
 
-    void CDebug::MFlags(signed int AValue , const std::source_location& ALocation)
+    void CDebug::PFlags(signed int AValue , const std::source_location& ALocation)
     {
         if(!AValue)
         {
@@ -163,7 +163,7 @@ namespace NBCG
         }
     }
 
-    void CDebug::MOGL(const std::source_location& ALocation)
+    void CDebug::POGL(const std::source_location& ALocation)
     {
         GLenum LCode{glGetError()};
         if(LCode != GL_NO_ERROR)
@@ -197,7 +197,7 @@ namespace NBCG
         }
     }
 
-    void CDebug::MAI(const void* AHandle , const std::source_location& ALocation)
+    void CDebug::PAI(const void* AHandle , const std::source_location& ALocation)
     {
         if(!AHandle)
         {

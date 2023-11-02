@@ -1,11 +1,11 @@
 #include "Y.hpp"
 
-namespace NBCG::Input::Mouse::Cursor::Y
+namespace NBCG::NInput::NMouse::NCursor
 {
-    void Update(const SDL_Event& Event)
+    void CY::PUpdate(const SDL_Event& AEvent)
     {
-        Absolute = Event.motion.y;
-        Relative = Event.motion.yrel;
-        Changed = Relative;
+        FAbsolute = AEvent.motion.y;
+        FRelative = AEvent.motion.yrel;
+        FChanged = FRelative;
     }
 }

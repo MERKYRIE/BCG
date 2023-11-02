@@ -1,13 +1,15 @@
-#include "Core.hpp"
+#include "Texture.hpp"
+
+#include "Debug.hpp"
 
 namespace NBCG
 {
     CTexture::CTexture(const std::string& APath)
     {
         SDL_Surface* LSurface{IMG_Load(("Textures" + APath).c_str())};
-        GDebug.MError(!LSurface);
-        glGenTextures(1 , &PIdentifier);
-        glBindTexture(GL_TEXTURE_2D , PIdentifier);
+        GDebug.PError(!LSurface);
+        glGenTextures(1 , &FIdentifier);
+        glBindTexture(GL_TEXTURE_2D , FIdentifier);
         switch(LSurface->format->format)
         {
             case SDL_PIXELFORMAT_RGBA32:
@@ -20,18 +22,18 @@ namespace NBCG
                 glTexImage2D(GL_TEXTURE_2D , 0 , GL_RGB8 , LSurface->w , LSurface->h , 0 , GL_COLOR_INDEX , GL_UNSIGNED_BYTE , LSurface->pixels);
             break;
             default:
-                GDebug.MError();
+                GDebug.PError();
             break;
         }
         glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MIN_FILTER , GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D , GL_TEXTURE_MAG_FILTER , GL_NEAREST);
         glBindTexture(GL_TEXTURE_2D , 0);
-        GDebug.MOGL();
+        GDebug.POGL();
         SDL_FreeSurface(LSurface);
     }
 
-    void CTexture::MBind() const
+    void CTexture::PBind() const
     {
-        glBindTexture(GL_TEXTURE_2D , PIdentifier);
+        glBindTexture(GL_TEXTURE_2D , FIdentifier);
     }
 }

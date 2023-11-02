@@ -1,14 +1,19 @@
 #pragma once
 
+#include "Core.hpp"
+
+#include "Material.hpp"
+#include "Scene.hpp"
+
 namespace NBCG
 {
     class CModel
     {
         private:
-            std::vector<CMaterial> PMaterials;
-            std::unique_ptr<CScene> PScene;
+            std::vector<CMaterial> FMaterials;
+            std::unique_ptr<CScene> FScene;
         public:
             CModel(const std::string& APath);
-            void MRender(double AX , double AY , double AZ) const;
+            void PRender(double AX , double AY , double AZ) const;
     };
 }

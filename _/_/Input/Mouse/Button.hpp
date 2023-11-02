@@ -2,11 +2,18 @@
 
 #include "Core.hpp"
 
-namespace NBCG::Input::Mouse::Button
+namespace NBCG::NInput::NMouse
 {
-    inline bool Held[6];
-    inline bool Pressed[6];
-    inline bool Released[6];
-
-    void Update(const SDL_Event& Event);
+    inline class CButton
+    {
+        private:
+            friend class CMouse;
+        private:    
+            bool FHeld[6];
+            bool FPressed[6];
+            bool FReleased[6];
+        private:    
+            void PUpdate(const SDL_Event& AEvent);
+    }
+    GButton;
 }

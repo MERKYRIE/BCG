@@ -1,11 +1,11 @@
-#include "Core.hpp"
+#include "Time.hpp"
 
 namespace NBCG
 {
-    void CTime::MUpdate()
+    void CTime::PUpdate()
     {
-        PLast = PAbsolute;
-        PAbsolute = SDL_GetTicks64();
-        PRelative = PAbsolute - PLast;
+        FLast = FAbsolute;
+        FAbsolute = SDL_GetTicks64();
+        FRelative = FAbsolute - FLast;
     }
 }

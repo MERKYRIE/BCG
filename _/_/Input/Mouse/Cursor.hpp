@@ -2,8 +2,15 @@
 
 #include "Core.hpp"
 
-namespace NBCG::Input::Mouse::Cursor
+namespace NBCG::NInput::NMouse
 {
-    void Initialize();
-    void Update(const SDL_Event& Event);
+    inline class CCursor
+    {
+        private:
+            friend class CMouse;
+        private:    
+            void PInitialize();
+            void PUpdate(const SDL_Event& AEvent);
+    }
+    GCursor;
 }

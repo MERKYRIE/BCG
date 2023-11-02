@@ -1,20 +1,22 @@
-#include "Core.hpp"
+#include "VertexBufferObject.hpp"
 
-namespace NBCG
+#include "Debug.hpp"
+
+namespace NBCG::NVideo
 {
-    CVertexBufferObject::CVertexBufferObject()
+    void CVertexBufferObject::PInitialize()
     {
-        glGenBuffers(1 , &PIdentifier);
-        GDebug.MOGL();
+        glGenBuffers(1 , &FIdentifier);
+        GDebug.POGL();
     }
 
-    CVertexBufferObject& CVertexBufferObject::MBind()
+    CVertexBufferObject& CVertexBufferObject::PBind()
     {
-        glBindBuffer(GL_ARRAY_BUFFER , PIdentifier);
+        glBindBuffer(GL_ARRAY_BUFFER , FIdentifier);
         return *this;
     }
 
-    CVertexBufferObject& CVertexBufferObject::MBuffer()
+    CVertexBufferObject& CVertexBufferObject::PBuffer()
     {
         static float LVertices[]
         {

@@ -1,20 +1,22 @@
-#include "Core.hpp"
+#include "ElementBufferObject.hpp"
 
-namespace NBCG
+#include "Debug.hpp"
+
+namespace NBCG::NVideo
 {
-    CElementBufferObject::CElementBufferObject()
+    void CElementBufferObject::PInitialize()
     {
-        glGenBuffers(1 , &PIdentifier);
-        GDebug.MOGL();
+        glGenBuffers(1 , &FIdentifier);
+        GDebug.POGL();
     }
 
-    CElementBufferObject& CElementBufferObject::MBind()
+    CElementBufferObject& CElementBufferObject::PBind()
     {
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , PIdentifier);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER , FIdentifier);
         return *this;
     }
 
-    CElementBufferObject& CElementBufferObject::MBuffer()
+    CElementBufferObject& CElementBufferObject::PBuffer()
     {
         static unsigned int LIndices[]
         {

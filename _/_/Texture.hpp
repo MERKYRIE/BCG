@@ -1,13 +1,15 @@
 #pragma once
 
+#include "Core.hpp"
+
 namespace NBCG
 {
     class CTexture
     {
         private:
-            unsigned int PIdentifier;
+            unsigned int FIdentifier;
         public:
             CTexture(const std::string& APath);
-            void MBind() const;
+            void PBind() const;
     };
 }

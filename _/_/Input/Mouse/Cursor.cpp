@@ -3,17 +3,17 @@
 #include "Cursor\\X.hpp"
 #include "Cursor\\Y.hpp"
 
-namespace NBCG::Input::Mouse::Cursor
+namespace NBCG::NInput::NMouse
 {
-    void Initialize()
+    void CCursor::PInitialize()
     {
         SDL_ShowCursor(SDL_DISABLE);
         SDL_WarpMouseInWindow(nullptr , 0 , 0);
     }
 
-    void Update(const SDL_Event& Event)
+    void CCursor::PUpdate(const SDL_Event& AEvent)
     {
-        X::Update(Event);
-        Y::Update(Event);
+        NCursor::GX.PUpdate(AEvent);
+        NCursor::GY.PUpdate(AEvent);
     }
 }

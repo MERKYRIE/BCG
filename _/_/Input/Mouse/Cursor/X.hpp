@@ -2,11 +2,18 @@
 
 #include "Core.hpp"
 
-namespace NBCG::Input::Mouse::Cursor::X
+namespace NBCG::NInput::NMouse::NCursor
 {
-    inline signed int Absolute;
-    inline signed int Relative;
-    inline bool Changed;
-
-    void Update(const SDL_Event& Event);
+    inline class CX
+    {
+        private:
+            friend class CCursor;
+        private:
+            signed int FAbsolute;
+            signed int FRelative;
+            bool FChanged;
+        private:
+            void PUpdate(const SDL_Event& AEvent);
+    }
+    GX;
 }

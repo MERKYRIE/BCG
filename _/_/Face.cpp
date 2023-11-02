@@ -1,4 +1,4 @@
-#include "Core.hpp"
+#include "Face.hpp"
 
 namespace NBCG
 {
@@ -6,13 +6,13 @@ namespace NBCG
     {
         for(unsigned int LIndex{0} ; LIndex < AFace.mNumIndices ; LIndex++)
         {
-            PIndices.push_back(AFace.mIndices[LIndex]);
+            FIndices.push_back(AFace.mIndices[LIndex]);
         }
     }
 
-    void CFace::MRender(const std::vector<aiVector3D>& AVertices , const std::vector<aiVector2D>& ACoordinates) const
+    void CFace::PRender(const std::vector<aiVector3D>& AVertices , const std::vector<aiVector2D>& ACoordinates) const
     {
-        switch(PIndices.size())
+        switch(FIndices.size())
         {
             case 1:
                 glBegin(GL_POINTS);
@@ -30,7 +30,7 @@ namespace NBCG
                 glBegin(GL_POLYGON);
             break;
         }
-        for(unsigned int LIndex : PIndices)
+        for(unsigned int LIndex : FIndices)
         {
             glTexCoord2d(ACoordinates[LIndex].x , ACoordinates[LIndex].y);
             glVertex3d(AVertices[LIndex].x , AVertices[LIndex].y , AVertices[LIndex].z);

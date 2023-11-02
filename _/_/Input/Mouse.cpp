@@ -4,32 +4,32 @@
 #include "Mouse\\Cursor.hpp"
 #include "Mouse\\Wheel.hpp"
 
-namespace NBCG::Input::Mouse
+namespace NBCG::NInput
 {
-    void Initialize()
+    void CMouse::PInitialize()
     {
-        Cursor::Initialize();
+        NMouse::GCursor.PInitialize();
     }
 
-    void Update(const SDL_Event& Event)
+    void CMouse::PUpdate(const SDL_Event& AEvent)
     {
-        switch(Event.type)
+        switch(AEvent.type)
         {
             case SDL_MOUSEMOTION:
-                Cursor::Update(Event);
+                NMouse::GCursor.PUpdate(AEvent);
             break;
             case SDL_MOUSEBUTTONDOWN:
-                Button::Update(Event);
-                PressedX[Event.button.button - 1] = Event.button.x;
-                PressedY[Event.button.button - 1] = Event.button.y;
+                NMouse::GButton.PUpdate(AEvent);
+                FPressedX[AEvent.button.button - 1] = AEvent.button.x;
+                FPressedY[AEvent.button.button - 1] = AEvent.button.y;
             break;
             case SDL_MOUSEBUTTONUP:
-                Button::Update(Event);
-                ReleasedX[Event.button.button - 1] = Event.button.x;
-                ReleasedY[Event.button.button - 1] = Event.button.y;
+                NMouse::GButton.PUpdate(AEvent);
+                FReleasedX[AEvent.button.button - 1] = AEvent.button.x;
+                FReleasedY[AEvent.button.button - 1] = AEvent.button.y;
             break;
             case SDL_MOUSEWHEEL:
-                Wheel::Update(Event);
+                NMouse::GWheel.PUpdate(AEvent);
             break;
         }
     }

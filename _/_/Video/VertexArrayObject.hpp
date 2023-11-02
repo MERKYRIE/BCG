@@ -4,7 +4,7 @@
 
 namespace NBCG::NVideo
 {
-    inline class CElementBufferObject
+    inline class CVertexArrayObject
     {
         private:
             friend class CVideo;
@@ -12,9 +12,6 @@ namespace NBCG::NVideo
             unsigned int FIdentifier;
         private:
             void PInitialize();
-        public:
-            CElementBufferObject& PBind();
-            CElementBufferObject& PBuffer();
     }
-    GElementBufferObject;
+    GVertexArrayObject;
 }

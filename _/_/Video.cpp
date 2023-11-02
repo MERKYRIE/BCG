@@ -1,24 +1,29 @@
-#include "Core.hpp"
+#include "Video.hpp"
+
+#include "Debug.hpp"
+#include "Video\\ShaderProgram.hpp"
+#include "Video\\VertexBufferObject.hpp"
+#include "Video\\ElementBufferObject.hpp"
+#include "Video\\VertexArrayObject.hpp"
 
 namespace NBCG
 {
-    CVideo::CVideo()
+    void CVideo::PInitialize()
     {
-        GDebug.MCode(SDL_Init(SDL_INIT_VIDEO));
-        GDebug.MCode(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION , 4));
-        GDebug.MCode(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION , 6));
-        GDebug.MCode(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS , 1));
-        GDebug.MCode(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES , 8));
-        GDebug.MHandle(PWindow = SDL_CreateWindow("MRKOGL" , 0 , 0 , 0 , 0 , SDL_WINDOW_FULLSCREEN_DESKTOP | SDL_WINDOW_OPENGL));
-        GDebug.MHandle(PContext = SDL_GL_CreateContext(PWindow));
-        if(GDebug.MWarning(SDL_GL_SetSwapInterval(0) < 0))
+        GDebug.PCode(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION , 4));
+        GDebug.PCode(SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION , 6));
+        GDebug.PCode(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS , 1));
+        GDebug.PCode(SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES , 8));
+        GDebug.PHandle(FWindow = SDL_CreateWindow("BCG" , 0 , 0 , 0 , 0 , SDL_WINDOW_FULLSCREEN_DESKTOP | SDL_WINDOW_OPENGL));
+        GDebug.PHandle(FContext = SDL_GL_CreateContext(FWindow));
+        if(GDebug.PWarning(SDL_GL_SetSwapInterval(0) < 0))
         {
-            if(GDebug.MWarning(SDL_GL_SetSwapInterval(1) < 0))
+            if(GDebug.PWarning(SDL_GL_SetSwapInterval(1) < 0))
             {
-                GDebug.MWarning(SDL_GL_SetSwapInterval(-1) < 0);
+                GDebug.PWarning(SDL_GL_SetSwapInterval(-1) < 0);
             }
         }
-        GDebug.MFlags(IMG_Init(IMG_INIT_PNG));
+        GDebug.PFlags(IMG_Init(IMG_INIT_PNG));
         glewInit();
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
@@ -27,32 +32,34 @@ namespace NBCG
         glEnable(GL_TEXTURE_2D);
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA , GL_ONE_MINUS_SRC_ALPHA);
-        glEnable(GL_DEPTH_TEST);
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         gluPerspective(90.0 , 16.0 / 9.0 , 0.1 , 1000.0);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         */
-        GDebug.MOGL();
+        GDebug.POGL();
+        NVideo::GShaderProgram.PInitialize();
+        NVideo::GVertexBufferObject.PInitialize();
+        NVideo::GElementBufferObject.PInitialize();
+        NVideo::GVertexArrayObject.PInitialize();
     }
 
-    void CVideo::MBegin()
+    void CVideo::PBegin()
     {
         glColor4ub(255 , 255 , 255 , 255);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
-    void CVideo::MEnd()
+    void CVideo::PEnd()
     {
-        SDL_GL_SwapWindow(PWindow);
+        SDL_GL_SwapWindow(FWindow);
     }
 
-    CVideo::~CVideo()
+    void CVideo::PDeinitialize()
     {
         IMG_Quit();
-        SDL_GL_DeleteContext(PContext);
-        SDL_DestroyWindow(PWindow);
-        SDL_Quit();
+        SDL_GL_DeleteContext(FContext);
+        SDL_DestroyWindow(FWindow);
     }
 }

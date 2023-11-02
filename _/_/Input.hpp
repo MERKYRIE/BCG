@@ -1,12 +1,16 @@
 #pragma once
 
+#include "Core.hpp"
+
 namespace NBCG
 {
     inline class CInput
     {
-        public:
-            CInput();
-            void MUpdate();
+        private:
+            friend class CCore;
+        private:
+            void PInitialize();
+            void PUpdate();
     }
     GInput;
 }

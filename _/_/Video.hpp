@@ -1,17 +1,21 @@
 #pragma once
 
+#include "Core.hpp"
+
 namespace NBCG
 {
     inline class CVideo
     {
         private:
-            SDL_Window* PWindow;
-            SDL_GLContext PContext;
-        public:
-            CVideo();
-            void MBegin();
-            void MEnd();
-            ~CVideo();
+            friend class CCore;
+        private:
+            SDL_Window* FWindow;
+            SDL_GLContext FContext;
+        private:
+            void PInitialize();
+            void PBegin();
+            void PEnd();
+            void PDeinitialize();
     }
     GVideo;
 }

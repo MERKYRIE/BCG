@@ -1,15 +1,20 @@
 #pragma once
 
-namespace NBCG
+#include "Core.hpp"
+
+namespace NBCG::NVideo
 {
     inline class CVertexBufferObject
     {
         private:
-            unsigned int PIdentifier;
+            friend class CVideo;
+        private:
+            unsigned int FIdentifier;
+        private:
+            void PInitialize();
         public:
-            CVertexBufferObject();
-            CVertexBufferObject& MBind();
-            CVertexBufferObject& MBuffer();
+            CVertexBufferObject& PBind();
+            CVertexBufferObject& PBuffer();
     }
     GVertexBufferObject;
 }

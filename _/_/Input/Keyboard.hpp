@@ -2,11 +2,22 @@
 
 #include "Core.hpp"
 
-namespace NBCG::Input::Keyboard
+namespace NBCG::NInput
 {
-    inline unsigned char Held[291];
-    inline unsigned char Pressed[291];
-    inline unsigned char Released[291];
-    
-    void Update(const SDL_Event& Event);
+    inline class CKeyboard
+    {
+        private:
+            friend class CInput;
+        private:    
+            unsigned char FHeld[291];
+            unsigned char FPressed[291];
+            unsigned char FReleased[291];
+        private:    
+            void PUpdate(const SDL_Event& AEvent);
+        public:
+            bool PHeld(unsigned short AKey);
+            bool PPressed(unsigned short AKey);
+            bool PReleased(unsigned short AKey);
+    }
+    GKeyboard;
 }
