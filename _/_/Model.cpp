@@ -55,6 +55,5 @@ namespace NBCG
         glTranslated(-AX , -AY , -AZ);
         */
         glDrawElements(GL_TRIANGLES , static_cast<signed int>(FIndices.size()) , GL_UNSIGNED_INT , nullptr);
-        //glDrawElements(GL_TRIANGLES , 3 , GL_UNSIGNED_INT , nullptr);
     }
 }

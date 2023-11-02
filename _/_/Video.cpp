@@ -40,7 +40,7 @@ namespace NBCG
 
     void CVideo::PBegin()
     {
-        //glColor4ub(255 , 255 , 255 , 255);
+        glClearColor(0.0F , 0.0F , 0.0F , 1.0F);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         NVideo::GShaderProgram.PUpdate();
     }
