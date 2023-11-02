@@ -45,6 +45,7 @@ namespace NBCG
 
     void CVideo::PEnd()
     {
+        NVideo::GShaderProgram.PUpdate();
         glDrawElements(GL_TRIANGLES , 3 , GL_UNSIGNED_INT , nullptr);
         SDL_GL_SwapWindow(FWindow);
     }

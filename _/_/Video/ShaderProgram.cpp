@@ -1,6 +1,7 @@
 #include "ShaderProgram.hpp"
 
 #include "Debug.hpp"
+#include "Time.hpp"
 
 namespace NBCG::NVideo
 {
@@ -26,99 +27,22 @@ namespace NBCG::NVideo
         GDebug.POGL();
     }
 
-    CShaderProgram& CShaderProgram::PUniform(const std::string& AVariable , float AX)
+    void CShaderProgram::PUpdate()
     {
-        glUniform1f(glGetUniformLocation(FIdentifier , AVariable.c_str()) , AX);
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform1(const std::string& AVariable , std::vector<float> AArray)
-    {
-        glUniform1fv(glGetUniformLocation(FIdentifier , AVariable.c_str()) , static_cast<signed int>(AArray.size()) , AArray.data());
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform(const std::string& AVariable , signed int AX)
-    {
-        glUniform1i(glGetUniformLocation(FIdentifier , AVariable.c_str()) , AX);
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform1(const std::string& AVariable , std::vector<signed int> AArray)
-    {
-        glUniform1iv(glGetUniformLocation(FIdentifier , AVariable.c_str()) , static_cast<signed int>(AArray.size()) , AArray.data());
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform(const std::string& AVariable , float AX , float AY)
-    {
-        glUniform2f(glGetUniformLocation(FIdentifier , AVariable.c_str()) , AX , AY);
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform2(const std::string& AVariable , std::vector<float> AArray)
-    {
-        glUniform2fv(glGetUniformLocation(FIdentifier , AVariable.c_str()) , static_cast<signed int>(AArray.size()) , AArray.data());
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform(const std::string& AVariable , signed int AX , signed int AY)
-    {
-        glUniform2i(glGetUniformLocation(FIdentifier , AVariable.c_str()) , AX , AY);
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform2(const std::string& AVariable , std::vector<signed int> AArray)
-    {
-        glUniform2iv(glGetUniformLocation(FIdentifier , AVariable.c_str()) , static_cast<signed int>(AArray.size()) , AArray.data());
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform(const std::string& AVariable , float AX , float AY , float AZ)
-    {
-        glUniform3f(glGetUniformLocation(FIdentifier , AVariable.c_str()) , AX , AY , AZ);
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform3(const std::string& AVariable , std::vector<float> AArray)
-    {
-        glUniform3fv(glGetUniformLocation(FIdentifier , AVariable.c_str()) , static_cast<signed int>(AArray.size()) , AArray.data());
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform(const std::string& AVariable , signed int AX , signed int AY , signed int AZ)
-    {
-        glUniform3i(glGetUniformLocation(FIdentifier , AVariable.c_str()) , AX , AY , AZ);
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform3(const std::string& AVariable , std::vector<signed int> AArray)
-    {
-        glUniform3iv(glGetUniformLocation(FIdentifier , AVariable.c_str()) , static_cast<signed int>(AArray.size()) , AArray.data());
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform(const std::string& AVariable , float AX , float AY , float AZ , float AW)
-    {
-        glUniform4f(glGetUniformLocation(FIdentifier , AVariable.c_str()) , AX , AY , AZ , AW);
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform4(const std::string& AVariable , std::vector<float> AArray)
-    {
-        glUniform4fv(glGetUniformLocation(FIdentifier , AVariable.c_str()) , static_cast<signed int>(AArray.size()) , AArray.data());
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform(const std::string& AVariable , signed int AX , signed int AY , signed int AZ , signed int AW)
-    {
-        glUniform4i(glGetUniformLocation(FIdentifier , AVariable.c_str()) , AX , AY , AZ , AW);
-        return *this;
-    }
-
-    CShaderProgram& CShaderProgram::PUniform4(const std::string& AVariable , std::vector<signed int> AArray)
-    {
-        glUniform4iv(glGetUniformLocation(FIdentifier , AVariable.c_str()) , static_cast<signed int>(AArray.size()) , AArray.data());
-        return *this;
+        static float LX{0.0F};
+        static float LY{0.0F};
+        static signed int LLocationX{glGetUniformLocation(FIdentifier , "UX")};
+        static signed int LLocationY{glGetUniformLocation(FIdentifier , "UY")};
+        if(LX <= 1.5F)
+        {
+            LX += GTime.PRelative() / 3000.0F;
+        }
+        else
+        {
+            LX = -1.5F;
+        }
+        LY = std::sin(GTime.PAbsolute() / 1000.0F);
+        glUniform1f(LLocationX , LX);
+        glUniform1f(LLocationY , LY);
     }
 }

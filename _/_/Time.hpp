@@ -9,11 +9,14 @@ namespace NBCG
         private:
             friend class CCore;
         private:
-            unsigned long long int FLast;
-            unsigned long long int FAbsolute;
-            unsigned long long int FRelative;
+            unsigned int FLast;
+            unsigned int FAbsolute;
+            unsigned int FRelative;
         private:
             void PUpdate();
+        public:
+            unsigned int PAbsolute();
+            unsigned int PRelative();
     }
     GTime;
 }

@@ -20,9 +20,9 @@ namespace NBCG::NVideo
     {
         static float LVertices[]
         {
-             0.5 , -0.5 , 0.0 ,    1.0 , 0.0 , 0.0 ,
-            -0.5 , -0.5 , 0.0 ,    0.0 , 1.0 , 0.0 ,
-             0.0 ,  0.5 , 0.0 ,    0.0 , 0.0 , 1.0
+             0.5F , -0.5F , 0.0F ,    1.0F , 0.0F , 0.0F ,
+            -0.5F , -0.5F , 0.0F ,    0.0F , 1.0F , 0.0F ,
+             0.0F ,  0.5F , 0.0F ,    0.0F , 0.0F , 1.0F
         };
         glBufferData(GL_ARRAY_BUFFER , sizeof(LVertices) , LVertices , GL_STATIC_DRAW);
         return *this;
