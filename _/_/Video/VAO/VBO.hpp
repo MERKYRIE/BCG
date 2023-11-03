@@ -4,17 +4,16 @@
 
 namespace NBCG::NVideo
 {
-    inline class CShaderProgram
+    inline class CVBO
     {
         private:
-            friend class CVideo;
+            friend class CVAO;
         private:
             unsigned int FIdentifier;
         private:
             void PInitialize();
-            void PUpdate();
         public:
-            CShaderProgram& PColor(const std::array<float , 4> AColor);
+            CVBO& PBuffer(const std::vector<std::array<float , 2>>& AVertices);
     }
-    GShaderProgram;
+    GVBO;
 }

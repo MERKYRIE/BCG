@@ -196,37 +196,4 @@ namespace NBCG
             std::exit(0);
         }
     }
-
-    void CDebug::PAI(const void* AHandle , const std::source_location& ALocation)
-    {
-        if(!AHandle)
-        {
-            if
-            (
-                SDL_ShowSimpleMessageBox
-                (
-                    SDL_MESSAGEBOX_ERROR ,
-                    "Debug" ,
-                    (
-                        std::string{} +
-                        "File - " + ALocation.file_name() + "\n" +
-                        "Function - " + ALocation.function_name() + "\n" +
-                        "Line - " + std::to_string(ALocation.line()) + "\n" +
-                        "Column - " + std::to_string(ALocation.column()) + "\n" +
-                        "AI - " + aiGetErrorString()
-                    ).data() ,
-                    nullptr
-                ) < 0
-            )
-            {
-                std::cout << "Debug:" << "\n"
-                          << "    File - " << ALocation.file_name() << "\n"
-                          << "    Function - " << ALocation.function_name() << "\n"
-                          << "    Line - " << ALocation.line() << "\n"
-                          << "    Column - " << ALocation.column() << "\n"
-                          << "    AI - " << aiGetErrorString() << "\n\n";
-            }
-            std::exit(0);
-        }
-    }
 }

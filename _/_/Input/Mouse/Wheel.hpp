@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core.hpp"
+#include "Engine.hpp"
 
 namespace NBCG::NInput::NMouse
 {

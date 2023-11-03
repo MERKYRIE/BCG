@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="_\_\Core.hpp" />
-    <ClInclude Include="_\_\Face.hpp" />
+    <ClInclude Include="_\_\Engine.hpp" />
+    <ClInclude Include="_\_\Game.hpp" />
     <ClInclude Include="_\_\Input.hpp" />
     <ClInclude Include="_\_\Input\Keyboard.hpp" />
     <ClInclude Include="_\_\Input\Mouse.hpp" />
@@ -29,22 +29,18 @@
     <ClInclude Include="_\_\Input\Mouse\Cursor\X.hpp" />
     <ClInclude Include="_\_\Input\Mouse\Cursor\Y.hpp" />
     <ClInclude Include="_\_\Input\Mouse\Wheel.hpp" />
-    <ClInclude Include="_\_\Material.hpp" />
-    <ClInclude Include="_\_\Mesh.hpp" />
-    <ClInclude Include="_\_\Model.hpp" />
-    <ClInclude Include="_\_\Scene.hpp" />
-    <ClInclude Include="_\_\Texture.hpp" />
     <ClInclude Include="_\_\Time.hpp" />
     <ClInclude Include="_\_\Video.hpp" />
     <ClInclude Include="_\_\Debug.hpp" />
-    <ClInclude Include="_\_\Video\ElementBufferObject.hpp" />
+    <ClInclude Include="_\_\Video\Polygon.hpp" />
     <ClInclude Include="_\_\Video\ShaderProgram.hpp" />
-    <ClInclude Include="_\_\Video\VertexArrayObject.hpp" />
-    <ClInclude Include="_\_\Video\VertexBufferObject.hpp" />
+    <ClInclude Include="_\_\Video\VAO.hpp" />
+    <ClInclude Include="_\_\Video\VAO\EBO.hpp" />
+    <ClInclude Include="_\_\Video\VAO\VBO.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="_\_\Core.cpp" />
-    <ClCompile Include="_\_\Face.cpp" />
+    <ClCompile Include="_\_\Engine.cpp" />
+    <ClCompile Include="_\_\Game.cpp" />
     <ClCompile Include="_\_\Input.cpp" />
     <ClCompile Include="_\_\Input\Keyboard.cpp" />
     <ClCompile Include="_\_\Input\Mouse.cpp" />
@@ -53,18 +49,14 @@
     <ClCompile Include="_\_\Input\Mouse\Cursor\X.cpp" />
     <ClCompile Include="_\_\Input\Mouse\Cursor\Y.cpp" />
     <ClCompile Include="_\_\Input\Mouse\Wheel.cpp" />
-    <ClCompile Include="_\_\Material.cpp" />
-    <ClCompile Include="_\_\Mesh.cpp" />
-    <ClCompile Include="_\_\Model.cpp" />
-    <ClCompile Include="_\_\Scene.cpp" />
-    <ClCompile Include="_\_\Texture.cpp" />
     <ClCompile Include="_\_\Time.cpp" />
     <ClCompile Include="_\_\Video.cpp" />
     <ClCompile Include="_\_\Debug.cpp" />
-    <ClCompile Include="_\_\Video\ElementBufferObject.cpp" />
+    <ClCompile Include="_\_\Video\Polygon.cpp" />
     <ClCompile Include="_\_\Video\ShaderProgram.cpp" />
-    <ClCompile Include="_\_\Video\VertexArrayObject.cpp" />
-    <ClCompile Include="_\_\Video\VertexBufferObject.cpp" />
+    <ClCompile Include="_\_\Video\VAO.cpp" />
+    <ClCompile Include="_\_\Video\VAO\EBO.cpp" />
+    <ClCompile Include="_\_\Video\VAO\VBO.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

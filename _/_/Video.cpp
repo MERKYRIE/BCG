@@ -1,11 +1,8 @@
 #include "Video.hpp"
 
 #include "Debug.hpp"
-#include "Model.hpp"
 #include "Video\\ShaderProgram.hpp"
-#include "Video\\VertexBufferObject.hpp"
-#include "Video\\ElementBufferObject.hpp"
-#include "Video\\VertexArrayObject.hpp"
+#include "Video\\VAO.hpp"
 
 namespace NBCG
 {
@@ -24,18 +21,29 @@ namespace NBCG
                 GDebug.PWarning(SDL_GL_SetSwapInterval(-1) < 0);
             }
         }
+        SDL_DisplayMode LMode;
+        SDL_GetWindowDisplayMode(FWindow , &LMode);
+        FWidth = LMode.w;
+        FHeight = LMode.h;
+        FRatio = static_cast<float>(FWidth) / static_cast<float>(FHeight);
+        FInversedRatio = static_cast<float>(FHeight) / static_cast<float>(FWidth);
+        for(signed int LMultiplier{2} ; LMultiplier <= 100 ; LMultiplier++)
+        {
+            if(std::abs(FRatio * LMultiplier - std::round(FRatio * LMultiplier)) <= 0.1F)
+            {
+                FProportionalWidth = static_cast<signed int>(std::round(FRatio * LMultiplier));
+                FProportionalHeight = LMultiplier;
+                break;
+            }
+        }
         GDebug.PFlags(IMG_Init(IMG_INIT_PNG));
         glewInit();
         glEnable(GL_MULTISAMPLE);
-        glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LESS);
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA , GL_ONE_MINUS_SRC_ALPHA);
         GDebug.POGL();
         NVideo::GShaderProgram.PInitialize();
-        NVideo::GVertexBufferObject.PInitialize();
-        NVideo::GElementBufferObject.PInitialize();
-        NVideo::GVertexArrayObject.PInitialize();
+        NVideo::GVAO.PInitialize();
     }
 
     void CVideo::PBegin()
@@ -47,8 +55,6 @@ namespace NBCG
 
     void CVideo::PEnd()
     {
-        static CModel LModel{"\\Gordon.obj"};
-        LModel.PRender(0.0 , 0.0 , 0.0);
         SDL_GL_SwapWindow(FWindow);
     }
 
@@ -57,5 +63,35 @@ namespace NBCG
         IMG_Quit();
         SDL_GL_DeleteContext(FContext);
         SDL_DestroyWindow(FWindow);
+    }
+
+    signed int CVideo::PWidth()
+    {
+        return FWidth;
+    }
+
+    signed int CVideo::PHeight()
+    {
+        return FHeight;
+    }
+
+    float CVideo::PRatio()
+    {
+        return FRatio;
+    }
+
+    float CVideo::PInversedRatio()
+    {
+        return FInversedRatio;
+    }
+
+    signed int CVideo::PProportionalWidth()
+    {
+        return FProportionalWidth;
+    }
+
+    signed int CVideo::PProportionalHeight()
+    {
+        return FProportionalHeight;
     }
 }

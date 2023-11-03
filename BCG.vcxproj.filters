@@ -3,13 +3,7 @@
   <ItemGroup>
     <ClInclude Include="_\_\Video.hpp" />
     <ClInclude Include="_\_\Debug.hpp" />
-    <ClInclude Include="_\_\Core.hpp" />
-    <ClInclude Include="_\_\Face.hpp" />
-    <ClInclude Include="_\_\Material.hpp" />
-    <ClInclude Include="_\_\Mesh.hpp" />
-    <ClInclude Include="_\_\Model.hpp" />
-    <ClInclude Include="_\_\Scene.hpp" />
-    <ClInclude Include="_\_\Texture.hpp" />
+    <ClInclude Include="_\_\Engine.hpp" />
     <ClInclude Include="_\_\Time.hpp" />
     <ClInclude Include="_\_\Input.hpp" />
     <ClInclude Include="_\_\Input\Keyboard.hpp">
@@ -36,26 +30,24 @@
     <ClInclude Include="_\_\Video\ShaderProgram.hpp">
       <Filter>Video</Filter>
     </ClInclude>
-    <ClInclude Include="_\_\Video\VertexBufferObject.hpp">
+    <ClInclude Include="_\_\Video\Polygon.hpp">
       <Filter>Video</Filter>
     </ClInclude>
-    <ClInclude Include="_\_\Video\VertexArrayObject.hpp">
+    <ClInclude Include="_\_\Video\VAO.hpp">
       <Filter>Video</Filter>
     </ClInclude>
-    <ClInclude Include="_\_\Video\ElementBufferObject.hpp">
-      <Filter>Video</Filter>
+    <ClInclude Include="_\_\Video\VAO\EBO.hpp">
+      <Filter>Video\VAO</Filter>
     </ClInclude>
+    <ClInclude Include="_\_\Video\VAO\VBO.hpp">
+      <Filter>Video\VAO</Filter>
+    </ClInclude>
+    <ClInclude Include="_\_\Game.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_\_\Video.cpp" />
     <ClCompile Include="_\_\Debug.cpp" />
-    <ClCompile Include="_\_\Core.cpp" />
-    <ClCompile Include="_\_\Face.cpp" />
-    <ClCompile Include="_\_\Material.cpp" />
-    <ClCompile Include="_\_\Mesh.cpp" />
-    <ClCompile Include="_\_\Model.cpp" />
-    <ClCompile Include="_\_\Scene.cpp" />
-    <ClCompile Include="_\_\Texture.cpp" />
+    <ClCompile Include="_\_\Engine.cpp" />
     <ClCompile Include="_\_\Time.cpp" />
     <ClCompile Include="_\_\Input.cpp" />
     <ClCompile Include="_\_\Input\Keyboard.cpp">
@@ -82,15 +74,19 @@
     <ClCompile Include="_\_\Video\ShaderProgram.cpp">
       <Filter>Video</Filter>
     </ClCompile>
-    <ClCompile Include="_\_\Video\VertexBufferObject.cpp">
+    <ClCompile Include="_\_\Video\Polygon.cpp">
       <Filter>Video</Filter>
     </ClCompile>
-    <ClCompile Include="_\_\Video\VertexArrayObject.cpp">
+    <ClCompile Include="_\_\Video\VAO.cpp">
       <Filter>Video</Filter>
     </ClCompile>
-    <ClCompile Include="_\_\Video\ElementBufferObject.cpp">
-      <Filter>Video</Filter>
+    <ClCompile Include="_\_\Video\VAO\EBO.cpp">
+      <Filter>Video\VAO</Filter>
     </ClCompile>
+    <ClCompile Include="_\_\Video\VAO\VBO.cpp">
+      <Filter>Video\VAO</Filter>
+    </ClCompile>
+    <ClCompile Include="_\_\Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Input">
@@ -104,6 +100,9 @@
     </Filter>
     <Filter Include="Video">
       <UniqueIdentifier>{a81215fc-8deb-41fe-a943-3dfa372d1c95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Video\VAO">
+      <UniqueIdentifier>{e59e1977-cf4d-46ac-b050-f46c378b6e31}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -29,22 +29,21 @@ namespace NBCG::NVideo
 
     void CShaderProgram::PUpdate()
     {
-        static glm::mat4 LProjection{glm::perspective(glm::radians(90.0F) , 16.0F / 9.0F , 0.1F , 1000.0F)};
+        static glm::mat4 LProjection{glm::ortho(0.0F , 100.0F , 100.0F , 0.0F)};
         static signed int LProjectionLocation{glGetUniformLocation(FIdentifier , "UProjection")};
         glUniformMatrix4fv(LProjectionLocation , 1 , GL_FALSE , &LProjection[0][0]);
-        static glm::mat4 LView
-        {
-            glm::rotate
-            (
-                glm::lookAt(glm::vec3{0.0F , 0.0F , 0.0F} , glm::vec3{0.0F , 0.0F , 0.0F} + glm::vec3{-1.0F , 0.0F , 0.0F} , glm::vec3{0.0F , 0.0F , -1.0F}) ,
-                glm::radians(180.0F) ,
-                glm::vec3(0.0F , 0.0F , 1.0F)
-            )
-        };
+        static glm::mat4 LView{1.0F};
         static signed int LViewLocation{glGetUniformLocation(FIdentifier , "UView")};
         glUniformMatrix4fv(LViewLocation , 1 , GL_FALSE , &LView[0][0]);
-        static glm::mat4 LModel{glm::translate(glm::mat4(1.0F) , glm::vec3(2.0F , 0.0F , 1.0F))};
+        static glm::mat4 LModel{1.0F};
         static signed int LModelLocation{glGetUniformLocation(FIdentifier , "UModel")};
         glUniformMatrix4fv(LModelLocation , 1 , GL_FALSE , &LModel[0][0]);
+    }
+
+    CShaderProgram& CShaderProgram::PColor(const std::array<float , 4> AColor)
+    {
+        static signed int LColor{glGetUniformLocation(FIdentifier , "UColor")};
+        glUniform4fv(LColor , 1 , AColor.data());
+        return *this;
     }
 }

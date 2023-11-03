@@ -1,13 +1,13 @@
 #pragma once
 
-#include "Core.hpp"
+#include "Engine.hpp"
 
 namespace NBCG
 {
     inline class CTime
     {
         private:
-            friend class CCore;
+            friend class CEngine;
         private:
             unsigned int FLast;
             unsigned int FAbsolute;
