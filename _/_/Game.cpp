@@ -53,7 +53,7 @@ namespace NBCG
         {
             FDirection = glm::clamp
             (
-                glm::normalize(glm::vec2{1.0F , ((FBall.PY() + FBall.PHeight() / 2.0F + FPlayers[0].PY() + FPlayers[0].PHeight()) / 2.0F - FPlayers[0].PY()) / FPlayers[0].PHeight() - 0.5F}) ,
+                glm::normalize(glm::vec2{1.0F , ((FBall.PY() + FBall.PHeight() / 2.0F + FPlayers[0].PY() + FPlayers[0].PHeight()) / 2.0F - FPlayers[0].PY()) / FPlayers[0].PHeight() - 0.75F}) ,
                 glm::normalize(glm::vec2{94.5F - FBall.PX() , 7.0F - FBall.PY()}) ,
                 glm::normalize(glm::vec2{94.5F - FBall.PX() , 92.0F - FBall.PY()})
             );
@@ -66,7 +66,7 @@ namespace NBCG
         {
             FDirection = glm::clamp
             (
-                glm::normalize(glm::vec2{-1.0F , ((FBall.PY() + FBall.PHeight() / 2.0F + FPlayers[1].PY() + FPlayers[1].PHeight()) / 2.0F - FPlayers[1].PY()) / FPlayers[1].PHeight() - 0.5F}) ,
+                glm::normalize(glm::vec2{-1.0F , ((FBall.PY() + FBall.PHeight() / 2.0F + FPlayers[1].PY() + FPlayers[1].PHeight()) / 2.0F - FPlayers[1].PY()) / FPlayers[1].PHeight() - 0.75F}) ,
                 glm::normalize(glm::vec2{5.5F - FBall.PX() , 7.0F - FBall.PY()}) ,
                 glm::normalize(glm::vec2{5.5F - FBall.PX() , 92.0F - FBall.PY()})
             );
